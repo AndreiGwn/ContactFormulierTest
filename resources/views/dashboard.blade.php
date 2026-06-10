@@ -1,18 +1,25 @@
 <x-layouts::app :title="__('Dashboard')">
-    <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
-        <div class="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
-                <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
-            </div>
-            <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
-                <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
-            </div>
-            <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
-                <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
-            </div>
-        </div>
-        <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
-            <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
-        </div>
-    </div>
+    <head>
+        <title>Contact Form</title>
+    </head>
+    <body>
+        <h1>Contact us</h1>
+
+        <form method="POST" action="{{ route('contact.submit') }}">
+            @csrf 
+            <label for="name">Name:</label><br>
+            <input type="text" id"name" name="name" required><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id"email" name="email" required><br>
+
+            <label for="phone">Phone Number</label><br>
+            <input type="phone" id"phone" name="phone" required><br>
+
+            <label for="Message">Message:</label><br>
+            <textarea id="message" name"message" required></textarea><br>
+
+            <input type="submit" value="Submit">
+
+        </form>
 </x-layouts::app>
